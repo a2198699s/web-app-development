@@ -1,0 +1,49 @@
+body {
+  background: url(background.jpg);
+}
+ 
+form{
+    color: black;
+    clear: left;
+    text-align: left;
+} 
+
+img {
+	width: 600px;
+	height: auto;
+	margin: 2%;
+	border: 5px solid gray;
+}
+
+#menu {
+	text-align: left;
+}
+
+nav {
+	min-width: 15%;
+	max-width: 20%;
+    float: left;
+    color: black;
+	margin-left: 4em;
+	margin-right: 2em;
+	padding: 1em;
+    background-color: white;
+    text-align: center;
+	border-left: 1px solid gray;
+	border-radius: 8px;
+}
+
+div {
+	
+	min-width: 30%;
+	max-width: 80%;
+	max-height: 80%;
+    margin: 2em;
+	margin-right: 4em;
+    border-left: 1px solid gray;
+	border-radius: 8px;
+	padding: 1em;
+    overflow: auto;
+	color: black;
+	background-color: white;
+}
