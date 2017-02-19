@@ -6,74 +6,62 @@
 		<title>Rate my pet</title>
 		<link rel="stylesheet" href="template-css.css" type="text/css">
 	</head>
-	
-	<body>			
-		
+
+	<body>
 		<nav>
-		
 			<h1>Pet rating service</h1>
-			
-			
-			
 			<br><hr>
-			
-			<a href="upload.html"><button>Upload</button></a>
-			
+            <div class = "upload">
+			             <a href="upload.html"><button>Upload</button></a>
+            </div>
 			<hr>
-			
-			
-			<ul>
-				<h4 id = "menu">Menu</h4>
 				<li><a href="highest.html">Highest rated</a></li>
 				<li><a href="cats.html">Categories</a></li>
-				<li><a href="profile.html">Your profile</a></li>
-			</ul>
-			
-			
-			<hr>
-			<br><br><br>
-			<br><br><br><br>
-			<br><br><br><hr>
-			<form>
-				Username:<br>
-				<input type="text" name="Username">
-				<br>
-				Password:<br>
-
-				<input type="password" name="Password">
-				<br><br>
-				<input type="submit" value="Sign in">
-			</form>
-			
 			<a href="register.html">Register here</a>
-			
-			
-			
 			</nav>
-		
-		<div>
-			<h1>Rate this pet</h1>
-			<hr>
-				<h3>Name: brodie</h3>
+		<div class = "main-body">
+                <form>
+                    <input type="text" name="Username" placeholder="Username">
+                    <input type="text" name="Password" placeholder="Password">
+                    <input type="submit" value="Sign in">
+                </form>
+
+        </div>
+        <div class = "card">
+            <div class = "petimg">
 				<img src="lab.jpg" alt="Picture of pet">
-				<h4>Category: dog</h4>
+            </div>
+            <div class = "leftdata">
+                <h1>Brodie</h1>
+                <br>
+                <h4>Dog</h4>
+
+            </div>
+            <div class = "rightdata">
+				<h1>Good boy/10</h1>
+                <br>
+				<h4>36 Ratings</h4>
+            </div>
+                <input type="range" min="0" max="10" value="0" step="1" onchange="showValue(this.value)" />
+                <span id="range">0</span>
+
+
+                    <script type="text/javascript">
+
+                    function showValue(newValue)
+                    {
+    	                   document.getElementById("range").innerHTML=newValue;
+                    }
+                    </script>
+
 				<br>
-				<a value=1><button>1</button></a>
-				<a value=2><button>2</button></a>
-				<a value=3><button>3</button></a>
-				<a value=4><button>4</button></a>
-				<a value=5><button>5</button></a>
-				<a value=6><button>6</button></a>
-				<a value=7><button>7</button></a>
-				<a value=8><button>8</button></a>
-				<a value=9><button>9</button></a>
-				<a value=10><button>10</button></a>
-				<a href="favourites.html"><button>Add to favourites</button></a>
-				
-				<p>Average rating: 9.5/10</p>
-				<p>Number of ratings: 36</p>
-				
-		</div>
-	
+                <div class = "favicon">
+				<a href="favourites.html"> <img src="Favourite-icon.png"></a>
+            </div>
+            <div class = "tickicon">
+            <a href="favourites.html"> <img src="Tick-icon.png"></a>
+        </div>
+            </div>
+
 	</body>
 </html>
