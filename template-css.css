@@ -38,18 +38,67 @@ nav {
     background-color: black;
     text-align: center;
     position: fixed;
-    height: 100vh
+    height: 100vh;
+    position: fixed;
+    left: -15em;
+    top: 0;
+    bottom: 0;
+    border-right: 40px solid black;
+    box-shadow: 5px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    cursor: pointer;
 }
-ul{
-    list-style: none;
-    text-align: center;
+
+nav:after {
+    position: absolute;
+    content: '  ';
+    width: 0;
+    height: 0;
+    right: -70px;
+    top: 50%;
 }
+
+nav ul {
+    width: 15em;
+    list-style-type: none;
+    font-size: 20px;
+}
+
+nav,
+nav * {
+    transition: all 1000ms ease;
+}
+
+nav:hover {
+    left: 0;
+}
+
+nav:hover ~ article:after {
+    left: 60%
+}
+
+nav li {
+    color: white;
+    padding: 5%;
+}
+
 a{
     text-decoration: none;
     display:inline-block;
     color: white;
 }
+.icon{
+    float: right;
+}
+.icon img{
+    float: right;
+    height: 40px;
+    width: auto;
+}
 
+.iconbtm{
+    padding-top: 85vh;
+}
 .main-body{
     padding-left: 20vw;
     overflow: auto;
