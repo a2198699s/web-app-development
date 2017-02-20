@@ -17,12 +17,18 @@
             <a href="favourites.html"> <img src="account.png"></a>
         </div>
         </div>
-            <div class = "upload">
-			             <a href="upload.html"><button>Upload</button></a>
+
             </div>
-				<li><a href="highest.html">Highest rated</a></li>
-				<li><a href="cats.html">Categories</a></li>
+            <ul>
+                <div class = "upload">
+    			             <a href="upload.html"><button>Upload</button></a>
+            <br>
+			<a href="highest.html">Highest rated</a>
+            <br>
+			<a href="cats.html">Categories</a>
+            <br>
 			<a href="register.html">Register here</a>
+        </ul>
 			</nav>
 		<div class = "main-body">
                 <form>
@@ -32,7 +38,21 @@
                 </form>
 
         </div>
-        <div class = "card">
+
+        <div class = "smallcard" id = "myBtn">
+            <div class = "smallpet">
+            <img src="lab.jpg" alt="Picture of pet">
+        </div>
+            <h1>Brodie</h1>
+            <br>
+            <h4>Dog</h4>
+            <div class = "smallfave">
+            <a href="favourites.html"> <img src="Favourite-icon.png"></a>
+            <!-- <button id="myBtn">Open Modal</button> -->
+        </div>
+        </div>
+
+        <div id = "myModal" class = "card">
             <div class = "petimg">
 				<img src="lab.jpg" alt="Picture of pet">
             </div>
@@ -68,5 +88,33 @@
         </div>
             </div>
 
+
+            <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            </script>
 	</body>
 </html>
