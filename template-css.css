@@ -59,8 +59,7 @@ nav:after {
 
 nav ul {
     padding-top: 200px;
-    padding-right: 5em;
-    width: 20em;
+    width: auto;
     list-style-type: none;
     font-size: 20px;
     font-family: 'Open Sans', sans-serif;
