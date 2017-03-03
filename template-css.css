@@ -43,7 +43,7 @@ nav {
     left: -20%;
     top: 0;
     bottom: 0;
-    z-index: 999;
+    z-index: 998;
     cursor: pointer;
     margin-right: 1em;
 }
@@ -58,10 +58,12 @@ nav:after {
 }
 
 nav ul {
+    padding-top: 200px;
     padding-right: 5em;
     width: 20em;
     list-style-type: none;
     font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 nav,
@@ -99,7 +101,9 @@ a{
 .main-body{
     overflow: auto;
 }
-
+.main-body form{
+    z-index: 999;
+}
 .card{
     border: 1px black;
     padding: 1px;
@@ -274,8 +278,11 @@ a{
 }
 
 input[type=text] {
-    border: 3px solid #f5d4e9;
+    border: 3px solid #A37774;
     padding: 10px;
+    z-index: 999;
+    position: relative;
+    top: 0;
 }
 
 
