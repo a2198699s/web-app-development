@@ -2,19 +2,21 @@
 {% load staticfiles %} 
 <html> 
 <head> 
-	<title>Rango</title> 
+	<title>Get Set Pet</title> 
 </head>
 
 <body> 
 	<h1>Catagories Page</h1> 
 	<div>Choose the category you would like to view!</div>
 <div> 
-	{% if categories %} 
-	<ul> 
-		{% for category in categories %} 
-			<li>{{ category.name }}</li>
-		{% endfor %} 
-	</ul> 
+{% if categories %} 
+<ul>
+	{% for category in categories %}
+	<!-- Following line changed to add an HTML hyperlink --> 
+	<li> 
+	<a href="/rango/category/{{ category.slug }}">{{ category.name }}</a> 	</li> 
+	{% endfor %} 
+ </ul
 	{% else %} 
 		<strong>There are no categories present.</strong> 
 	{% endif %} 
