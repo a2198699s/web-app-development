@@ -1,40 +1,49 @@
 <!DOCTYPE html>
-
+{% load staticfiles %}
 
 <html>
-   <head>
-       <title>Rate my pet</title>
-       <link rel="stylesheet" href="template-css.css" type="text/css">
-   </head>
+	<head>
+		<title>
+		{% block title_block %}
+			Rate my pet
+		{% endblock %}
+		</title>
+		<link rel="stylesheet" href="template-css.css" type="text/css">
+	</head>
 
-   <body>
-       <nav>
-           <h1>Ready, Set, Pet</h1>
-           <div class = "icon">
-           <a href="favourites.html"> <img src="paw.png"></a>
-           <br>
-           <div class = "iconbtm">
-           <a href="favourites.html"> <img src="account.png"></a>
-       </div>
-       </div>
+	<body>
+		<div>
+			{% block body_block %}
+			{% endblock %}
+		</div>
+		<nav>
+			<h1>Ready, Set, Pet</h1>
+			<div class = "icon">
+			<a href="favourites.html"> <img src="{% static "images/paw.png" %}"></a>
+			<br>
+			<div class = "iconbtm">
+			<a href="favourites.html"> <img src="{% static "images/account.png" %}"></a>
+		</div>
+		</div>
 
-           </div>
-           <ul>
-               <div class = "upload">
-                            <a href="upload.html"><button>Upload</button></a>
-           <br>
-           <a href="highest.html">Highest rated</a>
-           <br>
-           <a href="cats.html">Categories</a>
-           <br>
-           <a href="register.html">Register here</a>
-       </ul>
-           </nav>
-       <div class = "main-body">
-               <form>
+			</div>
+			<ul>
+				<div class = "upload">
+					<a href="upload.html"><button>Upload</button></a>	
+			<br>
+			<a href="highest.html">Highest rated</a>
+			<br>
+			<a href="{% url 'cats' %}">Categories</a>
+			<br>
+			<a href="register.html">Register here</a>
+		</ul>
+			</nav>
+		<div class = "main-body">
+				<form>
                    <input type="text" name="Username" placeholder="Username">
                    <input type="text" name="Password" placeholder="Password">
                    <input type="submit" value="Sign in">
-               </form>
-</body>
+                </form>				
+
+	</body>
 </html>
