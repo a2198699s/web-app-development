@@ -11,10 +11,11 @@
 <div> 
 {% if categories %} 
 <ul>
-	 {% for category in categories %}
-         <li><a href="{% url 'show_category' category.slug %}">{{ category.name }}</a></li>
-     {% endfor %}
-	 <!-- Tries /gsp/category/ -->
+	{% for category in categories %}
+	<!-- Following line changed to add an HTML hyperlink --> 
+	<li> 
+	<a href="/gsp/category/{{ category.slug }}">{{ category.name }}</a> 	</li> 
+	{% endfor %} 
  </ul
 	{% else %} 
 		<strong>There are no categories present.</strong> 
