@@ -18,9 +18,9 @@
 			{% endblock %}
 		</div>
 		<nav>
-			<h1>Ready, Set, Pet</h1>
+			<h1>Get, Set, Pet</h1>
 			<div class = "icon">
-			<a href="favourites.html"> <img src="{% static "images/paw.png" %}"></a>
+			<a href="/gsp/"> <img src="{% static "images/paw.png" %}"></a>
 			<br>
 			<div class = "iconbtm">
 			<a href="favourites.html"> <img src="{% static "images/account.png" %}"></a>
@@ -40,11 +40,17 @@
 		</ul>
 			</nav>
 		<div class = "main-body">
-				<form>
-                   <input type="text" name="Username" placeholder="Username">
-                   <input type="text" name="Password" placeholder="Password">
-                   <input type="submit" value="Sign in">
-                </form>				
-
+				{% if user.is_authenticated %}
+					welcome {{ user.username }}
+					<a href="{% url 'logout' %}">Logout</a>
+				{% else %}
+					<form id="login_form" method="post" action="{% url 'login' %}">
+						{% csrf_token %}
+					   Username: <input type="text" name="Username" placeholder="Username">
+					   Password: <input type="text" name="Password" placeholder="Password">
+					   <input type="submit" value="Sign in">
+					</form>
+				{% endif %}
+		</div>
 	</body>
 </html>

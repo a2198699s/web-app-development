@@ -22,9 +22,13 @@ body{
 }
 
 form{
-    color: white;
     clear: left;
     text-align: left;
+}
+
+.category-body {
+	clear: left;
+	padding-left: 100px;
 }
 
 #menu {
@@ -74,7 +78,7 @@ nav:hover {
 }
 
 nav:hover ~ article:after {
-    left: 60%
+    left: 30%
 }
 
 
@@ -98,6 +102,7 @@ a{
 }
 .main-body{
     overflow: auto;
+	padding-left: 100px;
 }
 
 .card{
@@ -161,10 +166,27 @@ a{
     float: right;
 }
 
+
+
 .main-body form{
     position: absolute;
     right: 20px;
     top: 20px;
+}
+
+.register-body{
+	position: relative;
+	margin-left: 5%;
+	padding: 100px, 100px, 100px, 100px;
+}
+
+.register-body form{
+	float: right;
+}
+
+.register form{
+	margin-left: 5%
+	
 }
 
 .petimg img{
