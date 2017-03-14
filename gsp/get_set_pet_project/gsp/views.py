@@ -11,6 +11,7 @@ from django.core.urlresolvers import reverse
 
 
 
+
 def index(request):
 	request.session.set_test_cookie()
 	return render(request, 'gsp/index.html')
@@ -115,7 +116,8 @@ def user_login(request):
 			print("Invalid login details: {0}, {1}".format(username, password))
 			return HttpResponse("Invalid login details supplied.")
 	else:
-		return render(request, '/gsp/', {})
+		return render(request, 'gsp/login.html', {})
+
 
 def some_view(request):
 	if not request.user.is_authenticated():

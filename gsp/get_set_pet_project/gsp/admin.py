@@ -1,5 +1,6 @@
 from django.contrib import admin
-from gsp.models import Category, Page, UserProfile
+from gsp.models import Category, Page
+from gsp.models import UserProfile
 
 
 class PageAdmin(admin.ModelAdmin):

@@ -15,7 +15,7 @@ urlpatterns = [
 	url(r'^register/$', views.register, name='register'),
 	url(r'^login/$', views.user_login, name='login'),
 	url(r'^logout/$', views.user_logout, name='logout'),
-	url(r'^accounts/', include('registration.backends.simple.urls')),
+	#url(r'^accounts/', include('registration.backends.simple.urls')),
 	]
 	
 #Handy Links	
@@ -26,5 +26,6 @@ urlpatterns = [
 #<li><a href="{% url 'about' %}">About</a></li>
 #<li><a href="{% url 'index' %}">Index</a></li>
 #<li><a href="{% url 'register' %}">Sign Up</a></li>
+#<li><a href="{% url 'login' %}">Sign In</a></li>
 #</ul>
 
