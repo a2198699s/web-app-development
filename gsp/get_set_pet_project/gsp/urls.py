@@ -15,6 +15,7 @@ urlpatterns = [
 	url(r'^register/$', views.register, name='register'),
 	url(r'^login/$', views.user_login, name='login'),
 	url(r'^logout/$', views.user_logout, name='logout'),
+        url(r'^upload/$', views.user_upload, name='upload'),
 	#url(r'^accounts/', include('registration.backends.simple.urls')),
 	]
 	

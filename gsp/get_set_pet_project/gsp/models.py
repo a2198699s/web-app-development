@@ -44,3 +44,16 @@ class UserProfile(models.Model):
 	def __str__(self):
 		return self.user.username
 
+def user_directory_path(instance, filename):
+        return 'user_{0}/{1}'.format(instance.user.id, filename)
+
+class Upload(models.Model):
+        user = models.ForeignKey(UserProfile)
+        name = models.CharField(max_length=128)
+        picture = models.ImageField(upload_to=user_directory_path)
+        rating = models.IntegerField(default=0)
+
+        def __str__(self):
+                return self.name
+        def __unicode__(self):
+                return self.name

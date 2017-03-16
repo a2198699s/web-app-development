@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from gsp.models import Category
 from gsp.models import Page
+from gsp.models import Upload
 from gsp.forms import CategoryForm
 from gsp.forms import PageForm
 from gsp.forms import UserForm, UserProfileForm
+from gsp.forms import UploadForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -130,3 +132,19 @@ def user_logout(request):
 	logout(request)
 	return HttpResponseRedirect(reverse('index'))
 
+def user_upload(request):
+        if request.method =='POST':
+                upload_form = UploadForm(data=request.POST)
+                if upload_form.is_valid():
+                        upload = upload_form.save()
+                        upload.name = name
+                        if 'picture' in request.FILES:
+                                upload.picture = request.FILES['picture']
+                        upload.save()
+                else:
+                        print(upload_form.errors)
+
+        uploads = Upload.objects.all()
+        
+        return render(request, 'gsp/upload.html',
+                      {'upload_form': upload_form }

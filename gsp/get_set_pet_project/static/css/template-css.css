@@ -174,13 +174,13 @@ a{
     top: 20px;
 }
 
-.register-body{
+.form-body{
 	position: relative;
 	margin-left: 5%;
 	padding: 100px, 100px, 100px, 100px;
 }
 
-.register-body form{
+.form-body form{
 	float: right;
 }
 
