@@ -34,19 +34,19 @@ def populate():
 
     # Called it cates because categories takes too long to type and we have
     # a cats page already. Categories are referred to as cate or cates
-    cates = {"Cats": {"pages": cats, "views":1, "likes":2},
-            "Dogs": {"pages": dogs, "views":1, "likes":2},
-            "Small Mammals": {"pages": small_mammals, "views":1, "likes":2},
-            "Birds": {"pages": birds, "views":1, "likes":2},
-            "Fish": {"pages": fish, "views":1, "likes":2},
-            "Reptiles": {"pages": reptiles, "views":1, "likes":2},
-            "Equine": {"pages": equine, "views":1, "likes":2},
-            "Other": {"pages": other, "views":1, "likes":2} }
+    cates = {"Cats": {"pages": cats},
+            "Dogs": {"pages": dogs},
+            "Small Mammals": {"pages": small_mammals},
+            "Birds": {"pages": birds},
+            "Fish": {"pages": fish},
+            "Reptiles": {"pages": reptiles},
+            "Equine": {"pages": equine},
+            "Other": {"pages": other} }
 
     for cate, cate_data in cates.iteritems():
-        c = add_cate(cate, cate_data["views"], cate_data["likes"])
+        c = add_cate(cate)
         for p in cate_data["pages"]:
-            add_page(c, p["title"], p["url"], p["views"])
+            add_page(c, p["title"], p["url"])
 
     for c in Category.objects.all():
         for p in Page.objects.filter(category=c):
@@ -55,7 +55,6 @@ def populate():
 def add_page(cate, title, url, views=0):
     p = Page.objects.get_or_create(category=cate, title=title)[0]
     p.url=url
-    p.views=views
     p.save()
     return p
 

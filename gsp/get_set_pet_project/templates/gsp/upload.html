@@ -8,12 +8,6 @@
 {% block body_block %}
 	<!--Checks if a user is logged in, if not they will be asked before viewing this page-->
 	{% if user.is_authenticated %}
-		welcome {{ user.username }}
-	{% else %}
-		<p>You are not Signed in. 
-		<br>Please Sign in or Sign up before uploading.
-		</p>
-	{% endif %}
 	{% if uploads %}
 	<!--This is based off the html code in index, will (hopefully) display a list of all uploads
 		TODO: make it so just the users uploads are shown. Also make it actually work-->
@@ -46,6 +40,11 @@
 		
 		<input type="submit" name="submit" value="Upload" />
 	</div>
+	{% else %}
+		<p>You are not Signed in. 
+		<br>Please Sign in or Sign up before uploading.
+		</p>
+	{% endif %}
 {% endblock %}
 	
 		
