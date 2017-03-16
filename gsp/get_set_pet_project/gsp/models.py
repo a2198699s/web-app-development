@@ -43,13 +43,16 @@ class UserProfile(models.Model):
 	# Remember if you use Python 2.7.x, define __unicode__ too!
 	def __str__(self):
 		return self.user.username
-
+#Sets a file path so that it will go media/<username>/<filename>
 def user_directory_path(instance, filename):
         return 'user_{0}/{1}'.format(instance.user.id, filename)
 
 class Upload(models.Model):
+        #Not sure how necessary this is yet, hopefully will work in a similar way to
+        #pages and categories
         user = models.ForeignKey(UserProfile)
         name = models.CharField(max_length=128)
+        #uploads the file to path as defined earlier
         picture = models.ImageField(upload_to=user_directory_path)
         rating = models.IntegerField(default=0)
 

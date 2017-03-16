@@ -2,7 +2,7 @@ from django import forms
 from gsp.models import Page, Category
 from django import forms
 from django.contrib.auth.models import User
-from gsp.models import Category, Page, UserProfile
+from gsp.models import Category, Page, UserProfile, Upload
 
 class CategoryForm(forms.ModelForm):
     name = forms.CharField(max_length=128, help_text="Please enter the category name.")
@@ -56,6 +56,8 @@ class UserProfileForm(forms.ModelForm):
 		model = UserProfile
 		fields = ('website', 'picture')
 
+#Hopefully this gives us two inputs for name and picture
+		#(we can put more in later, keeping it simple for now)
 class UploadForm(forms.ModelForm):
         class Meta:
                 model = Upload

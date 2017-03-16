@@ -6,7 +6,16 @@
 	Upload
 {% endblock %}
 {% block body_block %}
+	<!--Checks if a user is logged in, if not they will be asked before viewing this page-->
+	{% if user.is_authenticated %}
+		welcome {{ user.username }}
+	{% else %}
+		<p>You are not Signed in. 
+		<br>Please Sign in or Sign up before uploading.
+		</p>
 	{% if uploads %}
+	<!--This is based off the html code in index, will (hopefully) display a list of all uploads
+		TODO: make it so just the users uploads are shown. Also make it actually work-->
         <div class = "cardunit">
         <div class = "smallcard" id = "myBtn">
             <div class = "smallpet">
@@ -26,6 +35,7 @@
 	{% else %}
 		<p>No Uploads</p>
 	{% endif %}
+	<!--Here's the form for uploading a new picture-->
 	<div class="form-body">
 		<form id="upload_form" method="post" action="{% url 'user_upload' %}"
 			enctype="multipart/form-data">
