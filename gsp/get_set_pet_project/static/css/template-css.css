@@ -22,13 +22,9 @@ body{
 }
 
 form{
+    color: white;
     clear: left;
     text-align: left;
-}
-
-.category-body {
-	clear: left;
-	padding-left: 100px;
 }
 
 #menu {
@@ -47,7 +43,7 @@ nav {
     left: -20%;
     top: 0;
     bottom: 0;
-    z-index: 999;
+    z-index: 998;
     cursor: pointer;
     margin-right: 1em;
 }
@@ -62,10 +58,11 @@ nav:after {
 }
 
 nav ul {
-    padding-right: 5em;
-    width: 20em;
+    padding-top: 200px;
+    width: auto;
     list-style-type: none;
     font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 nav,
@@ -78,7 +75,7 @@ nav:hover {
 }
 
 nav:hover ~ article:after {
-    left: 30%
+    left: 60%
 }
 
 
@@ -102,9 +99,10 @@ a{
 }
 .main-body{
     overflow: auto;
-	padding-left: 100px;
 }
-
+.main-body form{
+    z-index: 999;
+}
 .card{
     border: 1px black;
     padding: 1px;
@@ -166,27 +164,10 @@ a{
     float: right;
 }
 
-
-
 .main-body form{
     position: absolute;
     right: 20px;
     top: 20px;
-}
-
-.form-body{
-	position: relative;
-	margin-left: 5%;
-	padding: 100px, 100px, 100px, 100px;
-}
-
-.form-body form{
-	float: right;
-}
-
-.register form{
-	margin-left: 5%
-	
 }
 
 .petimg img{
@@ -296,8 +277,11 @@ a{
 }
 
 input[type=text] {
-    border: 3px solid #f5d4e9;
+    border: 3px solid #A37774;
     padding: 10px;
+    z-index: 999;
+    position: relative;
+    top: 0;
 }
 
 
