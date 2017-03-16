@@ -13,6 +13,7 @@
 		<p>You are not Signed in. 
 		<br>Please Sign in or Sign up before uploading.
 		</p>
+	{% endif %}
 	{% if uploads %}
 	<!--This is based off the html code in index, will (hopefully) display a list of all uploads
 		TODO: make it so just the users uploads are shown. Also make it actually work-->
@@ -30,6 +31,7 @@
             <a href="favourites.html"> <img src="{% static "images/Favourite-icon.png" %}"
 										alt = "Favourite" /></a>
 			</div>
+			{% endfor %}
 		</div>
 		</div>
 	{% else %}
@@ -37,7 +39,7 @@
 	{% endif %}
 	<!--Here's the form for uploading a new picture-->
 	<div class="form-body">
-		<form id="upload_form" method="post" action="{% url 'user_upload' %}"
+		<form id="upload_form" method="post" action="{% url 'upload' %}"
 			enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ upload_form.as_p }}

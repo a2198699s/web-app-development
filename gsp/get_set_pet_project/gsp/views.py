@@ -144,7 +144,8 @@ def user_upload(request):
                         upload.save()
                 else:
                         print(upload_form.errors)
-
+        else:
+                upload_form = UploadForm()
         uploads = Upload.objects.all()
         
         return render(request, 'gsp/upload.html',
