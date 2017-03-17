@@ -163,7 +163,6 @@ def user_upload(request):
 
         context_dict = {'upload_form' : upload_form}
         all_categories = Category.objects.order_by('-id')
-        context_dict['all_categories'] = all_categories
         print context_dict
 
     uploads = Upload.objects.all()

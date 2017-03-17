@@ -57,7 +57,7 @@ def user_directory_path(instance, filename):
 class Upload(models.Model):
     # Not sure how necessary this is yet, hopefully will work in a similar way to
     # pages and categories
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(User)
     category = models.ForeignKey(Category)
     name = models.CharField(max_length=128)
     # uploads the file to path as defined earlier
