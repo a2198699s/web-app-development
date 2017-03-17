@@ -8,29 +8,29 @@ from gsp.models import Category, Page
 def populate():
 
     
-    cats = [{"title": "more cats",
-             "url":"http://icanhas.cheezburger.com/lolcats"}]
+    cats = [{"title": "Cats",
+             "img":"maru.jpg"}]
     
-    dogs = [{"title": "more dogs",
-             "url":"about:blank"}]
+    dogs = [{"title": "Dogs",
+             "img":"dog4.jpg"}]
     
-    small_mammals = [{"title": "more smol mammals",
-                      "url":"about:blank"}]
+    small_mammals = [{"title": "Smol mammals",
+                      "img":"Herbert.jpg"}]
     
-    birds = [{"title": "more birds",
-             "url":"about:blank"}]
+    birds = [{"title": "Birds",
+             "img":"birb.jpg"}]
 
-    fish = [{"title": "more fish",
-             "url":"about:blank"}]
+    fish = [{"title": "Fish",
+             "img":"Mr Splashy-pants.jpg"}]
 
-    reptiles = [{"title": "more reptiles",
-                 "url":"about:blank"}]
+    reptiles = [{"title": "Reptiles",
+                 "img":"Polly.jpg"}]
 
-    equine = [{"title": "more horses",
-               "url":"about:blank"}]
+    equine = [{"title": "Equine",
+               "img":"baldrick.jpg"}]
 
-    other = [{"title": "more dogs",
-             "url":"about:blank"}]
+    other = [{"title": "Other",
+             "img":"Ant and Dec.jpg"}]
 
     # Called it cates because categories takes too long to type and we have
     # a cats page already. Categories are referred to as cate or cates
@@ -46,15 +46,15 @@ def populate():
     for cate, cate_data in cates.iteritems():
         c = add_cate(cate)
         for p in cate_data["pages"]:
-            add_page(c, p["title"], p["url"])
+            add_page(c, p["title"], p["img"])
 
     for c in Category.objects.all():
         for p in Page.objects.filter(category=c):
             print("- {0} - {1}".format(str(c), str(p)))
 
-def add_page(cate, title, url, views=0):
+def add_page(cate, title, img, views=0):
     p = Page.objects.get_or_create(category=cate, title=title)[0]
-    p.url=url
+    p.img=img
     p.save()
     return p
 

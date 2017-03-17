@@ -3,11 +3,11 @@
 }
 
 .upload button{
-        border: 0px;
-        background: #f5d4e9;
-        color: #ffffff;
-        font-size: 18px;
-        text-transform: uppercase;
+    border: 0px;
+    background: #f5d4e9;
+    color: #ffffff;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 
 
@@ -29,6 +29,11 @@ form{
 
 #menu {
 
+}
+
+.page-content {
+    text-decoration: black;
+    margin-left: 50px;
 }
 
 nav {

@@ -2,12 +2,12 @@ from __future__ import unicode_literals
 from django.template.defaultfilters import slugify
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
+from django.db import models
 
 
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
-    views = models.IntegerField(default=0)
-    likes = models.IntegerField(default=0)
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
@@ -27,8 +27,7 @@ class Category(models.Model):
 class Page(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128)
-    url = models.URLField()
-    views = models.IntegerField(default=0)
+    img = models.CharField(max_length=128, default="Super Hans.jpg")
 
     def __str__(self):
         return self.title
@@ -58,15 +57,12 @@ def user_directory_path(instance, filename):
 class Upload(models.Model):
     # Not sure how necessary this is yet, hopefully will work in a similar way to
     # pages and categories
-    user = models.ForeignKey(UserProfile)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     category = models.ForeignKey(Category)
     name = models.CharField(max_length=128)
     # uploads the file to path as defined earlier
     picture = models.ImageField(upload_to=user_directory_path)
     rating = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.name
 
     def __unicode__(self):
         return self.name

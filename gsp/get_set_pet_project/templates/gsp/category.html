@@ -12,7 +12,8 @@
 		{% if pages %}
 			<ul>
 			{% for page in pages %}
-				<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+				<li><a href="{{ page.url }}">{{ page.title }}</a>
+				<img src="{{ MEDIA_URL }}{{ page.img }}" alt = "Picture of "{{ page.title }}</li>
 			{% endfor %}
 			</ul>
 		{% else %}

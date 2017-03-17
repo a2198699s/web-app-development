@@ -25,7 +25,8 @@ def about(request):
 
 
 def cats(request):
-    category_list = Category.objects.order_by('-likes')
+    #category_list = Category.objects.order_by('-likes')
+    category_list = Category.objects.all()
     context_dict = {'categories': category_list}
     return render(request, 'gsp/cats.html', context=context_dict)
 
@@ -134,22 +135,37 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
-
+@login_required
 # a lot of guesswork here I'll be honest
 def user_upload(request):
+    context_dict={}
+
     if request.method == 'POST':
+
         upload_form = UploadForm(request.POST, request.FILES)
+
         if upload_form.is_valid():
-            upload = upload_form.save()
+            print 'form is_valid'
+
+            upload = upload_form.save(commit=False)
+            upload.user = request.user
             upload.name = name
+
             if 'picture' in request.FILES:
                 upload.picture = request.FILES['picture']
             upload.save()
+
+            return render(request, 'gsp/upload.html', {'upload_form': upload_form})
         else:
             print(upload_form.errors)
     else:
         upload_form = UploadForm()
+
+        context_dict = {'upload_form' : upload_form}
+        all_categories = Category.objects.order_by('-id')
+        context_dict['all_categories'] = all_categories
+        print context_dict
+
     uploads = Upload.objects.all()
 
-    return render(request, 'gsp/upload.html',
-                  {'upload_form': upload_form})
+    return render(request, 'gsp/upload.html', context_dict)
