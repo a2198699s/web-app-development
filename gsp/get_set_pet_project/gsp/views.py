@@ -145,8 +145,8 @@ def user_upload(request):
             
             upload = upload_form.save(commit=False)
             upload.user = request.user
-            upload.name = name
-            upload.category = category
+            #upload.name = name
+            #upload.category = category
 
             if 'picture' in request.FILES:
                 upload.picture = request.FILES['picture']
