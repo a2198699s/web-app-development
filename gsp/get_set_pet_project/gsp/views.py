@@ -13,14 +13,14 @@ from django.core.urlresolvers import reverse
 
 
 def index(request):
-    request.session.set_test_cookie()
+    #request.session.set_test_cookie()
     return render(request, 'gsp/index.html')
 
 
 def about(request):
-    if request.session.test_cookie_worked():
-        print("TEST COOKIE WORKED!")
-        request.session.delete_test_cookie()
+    #if request.session.test_cookie_worked():
+        #print("TEST COOKIE WORKED!")
+        #request.session.delete_test_cookie()
     return HttpResponse('This is the about page  <a href="/gsp/">Index</a>')
 
 
@@ -135,21 +135,18 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
-@login_required
 # a lot of guesswork here I'll be honest
 def user_upload(request):
-    context_dict={}
-
     if request.method == 'POST':
 
         upload_form = UploadForm(request.POST, request.FILES)
 
         if upload_form.is_valid():
-            print 'form is_valid'
-
+            
             upload = upload_form.save(commit=False)
             upload.user = request.user
             upload.name = name
+            upload.category = category
 
             if 'picture' in request.FILES:
                 upload.picture = request.FILES['picture']
@@ -160,11 +157,8 @@ def user_upload(request):
             print(upload_form.errors)
     else:
         upload_form = UploadForm()
-
-        context_dict = {'upload_form' : upload_form}
-        all_categories = Category.objects.order_by('-id')
-        print context_dict
-
+        #all_categories = Category.objects.order_by('-id')
     uploads = Upload.objects.all()
 
-    return render(request, 'gsp/upload.html', context_dict)
+    return render(request, 'gsp/upload.html',
+                  {'uploads': uploads, 'upload_form': upload_form})

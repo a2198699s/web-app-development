@@ -54,7 +54,7 @@ def user_directory_path(instance, filename):
     return 'user_{0}/{1}'.format(instance.user.id, filename)
 
 
-class Upload(models.Model):
+class Upload(models.Model):   
     # Not sure how necessary this is yet, hopefully will work in a similar way to
     # pages and categories
     user = models.ForeignKey(User)
