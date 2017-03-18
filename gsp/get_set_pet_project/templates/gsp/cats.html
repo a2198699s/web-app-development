@@ -16,7 +16,7 @@
 				{% for category in categories %}
 					<li> 
 					<a href="/gsp/category/{{ category.slug }}">{{ category.name }}</a> 
-					<img src="{{ MEDIA_URL }}{{ page.img }}" alt = "Picture of "{{ page.title }}>
+					<img src="{{ MEDIA_URL }}{{ category.page.img }}" alt = "Picture of "{{ category.page.title }}>
 					</li> 
 				{% endfor %} 
 				</ul>

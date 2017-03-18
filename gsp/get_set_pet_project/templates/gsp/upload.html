@@ -11,22 +11,22 @@
 	{% if uploads %}
 	<!--This is based off the html code in index, will (hopefully) display a list of all uploads
 		TODO: make it so just the users uploads are shown. Also make it actually work-->
-        <div class = "cardunit">
-        <div class = "smallcard" id = "myBtn">
-            <div class = "smallpet">
+			<div class = "cardunit">
 			{% for upload in uploads %}
-				<img src="{{ MEDIA_URL }}{{ upload.picture }}" 
-				alt="Picture of {{ upload.picture.name }}">
-			</div>
-            <h1>{{ upload.picture.name }}</h1>
-            <br>
-            <h4>{{ upload.picture.category }}</h4>
-            <div class = "smallfave">
-            <a href="favourites.html"> <img src="{% static "images/Favourite-icon.png" %}"
-										alt = "Favourite" /></a>
-			</div>
-			{% endfor %}
+			<div class = "smallcard" id = "myBtn">
+				<div class = "smallpet">
+					<img src="{{ MEDIA_URL }}{{ upload.picture }}" 
+					alt="Picture of {{ upload.name }}">
+				</div>
+				<h1>{{ upload.name }}</h1>
+				<br>
+				<h4>{{ upload.category }}</h4>
+				<div class = "smallfave">
+				<a href="favourites.html"> <img src="{% static "images/Favourite-icon.png" %}"
+											alt = "Favourite" /></a>
+				</div>
 		</div>
+					{% endfor %}
 		</div>
 	{% else %}
 		<p>No Uploads</p>
