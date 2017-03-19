@@ -14,15 +14,21 @@
 			{% if categories %} 
 				<ul>
 				{% for category in categories %}
+					
 					<li> 
-					<a href="/gsp/category/{{ category.slug }}">{{ category.name }}</a> 
+					<a href="/gsp/category/{{ category.slug }}"style="color:blue;">{{ category.name }}</h1></a> 
+					</h1>
 					<img src="{{ MEDIA_URL }}{{ category.page.img }}" alt = "Picture of "{{ category.page.title }}>
 					</li> 
-				{% endfor %} 
-				</ul>
+				{% endfor %}
+			
+				</ul>	
 			{% else %} 
 				<strong>There are no categories present.</strong> 
 			{% endif %} 
+			
 		</div>
 	</div>
 {% endblock %}
+
+		
