@@ -8,11 +8,15 @@
 	<div class="form-body">
 	{% if registered %}
 		Get Set Pet says: <strong>thank you for registering!</strong>
+		<h1 style="color:black;">
 		<a href="{% url 'index' %}">Return to the homepage.</a><br />
+		</h1>
 	{% else %}
 		Get Set Pet says: <strong>register here!</strong><br />
+		<h1 style="color:black;">
 		<form id="user_form" method="post" action="{% url 'register' %}"
 			enctype="multipart/form-data">
+		</h1>
 		{% csrf_token %}
 
 		{{ user_form.as_p }}
@@ -21,9 +25,10 @@
 		<input type="submit" name="submit" value="Register" />
 		</form>
 	{% endif %}
+	
 	</div>
 {% endblock %}
 
 
-
+		<h1 style="color:black;"> </h1>
 
