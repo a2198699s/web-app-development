@@ -48,7 +48,7 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('picture',)
+        fields = ('website', 'picture')
 
     # Hopefully this gives us two inputs for name and picture
     # (we can put more in later, keeping it simple for now)
