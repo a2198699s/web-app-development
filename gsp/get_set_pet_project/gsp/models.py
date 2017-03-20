@@ -63,7 +63,7 @@ class UserProfile(models.Model):
     # The additional attributes we wish to include.
     #website = models.URLField(blank=True)
     picture = models.ImageField(upload_to='profile_images', blank=True)
-    favourites = models.ForeignKey(Upload)
+    #favourites = models.ForeignKey(Upload)
     # Override the __unicode__() method to return out something meaningful!
     # Remember if you use Python 2.7.x, define __unicode__ too!
     def __str__(self):

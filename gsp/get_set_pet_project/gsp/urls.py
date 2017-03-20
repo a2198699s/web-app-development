@@ -4,6 +4,7 @@ from gsp import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^about/', views.about, name='about'),
+	url(r'^favourites/', views.favourites, name='favourites'),
     url(r'^cats/', views.cats, name='cats'),
     url(r'about/$', views.about, name='about'),
     url(r'^add_category/$', views.add_category, name='add_category'),

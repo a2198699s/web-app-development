@@ -15,6 +15,10 @@ from django.core.urlresolvers import reverse
 def index(request):
     #request.session.set_test_cookie()
     return render(request, 'gsp/index.html')
+	
+def favourites(request):
+    #request.session.set_test_cookie()
+    return render(request, 'gsp/favourites.html')	
 
 
 def about(request):
@@ -24,6 +28,7 @@ def about(request):
     return HttpResponse('This is the about page  <a href="/gsp/">Index</a>')
 
 
+	
 def cats(request):
     #category_list = Category.objects.order_by('-likes')
     category_list = Category.objects.all()
