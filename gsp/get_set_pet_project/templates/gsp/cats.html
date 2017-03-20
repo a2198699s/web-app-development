@@ -14,12 +14,14 @@
 			{% if categories %} 
 				<ul>
 				{% for category in categories %}
-					
-					<li> 
+					{% if pages %}
+						{% for page in pages %}
+						<img src="{{ MEDIA_URL }}{{ category.img }}" alt = "Picture of "{{ category.name }}</li>
+						{% endfor %}
+					{% endif %}	
+
 					<a href="/gsp/category/{{ category.slug }}"style="color:blue;">{{ category.name }}</h1></a> 
 					</h1>
-					<img src="{{ MEDIA_URL }}{{ category.page.img }}" alt = "Picture of "{{ category.page.title }}>
-					</li> 
 				{% endfor %}
 			
 				</ul>	

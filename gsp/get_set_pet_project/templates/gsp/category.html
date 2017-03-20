@@ -10,8 +10,8 @@
 
 {% block body_block %}
 	{% if category %}
-		{{ category.name }}
-		{% if pages %}
+		{{ category.title }}
+		<!--{% if pages %}
 			<ul>
 			<h1 style="color:black;">
 			{% for page in pages %}
@@ -24,7 +24,7 @@
 			</ul>
 		{% else %}
 			<strong>No pages currently in category.</strong>
-		{% endif %}
+		{% endif %}-->
 	{% else %}
 		The specified category does not exist!
 	{% endif %}

@@ -3,12 +3,12 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'get_set_pet_project.settings')
 
 import django
 django.setup()
-from gsp.models import Category, Page
+from gsp.models import Category # Page
 
 def populate():
 
     
-    cats = [{"title": "Cats",
+   """" cats = [{"title": "Cats",
              "img":"maru.jpg"}]
     
     dogs = [{"title": "Dogs",
@@ -30,20 +30,27 @@ def populate():
                "img":"baldrick.jpg"}]
 
     other = [{"title": "Other",
-             "img":"Ant and Dec.jpg"}]
+             "img":"Ant and Dec.jpg"}]"""
 
     # Called it cates because categories takes too long to type and we have
     # a cats page already. Categories are referred to as cate or cates
-    cates = {"Cats": {"pages": cats},
-            "Dogs": {"pages": dogs},
-            "Small Mammals": {"pages": small_mammals},
-            "Birds": {"pages": birds},
-            "Fish": {"pages": fish},
-            "Reptiles": {"pages": reptiles},
-            "Equine": {"pages": equine},
-            "Other": {"pages": other} }
+    cates = {{"title": "Cats", "img": "maru.jpg"},
+            #"Dogs": {"pages": dogs},
+             {"title": "Dogs", "img": "dog4.jpg"},
+            #"Small Mammals": {"pages": small_mammals},
+             {"title": "Small Mammals", "img": "Herbert.jpg"},
+            #"Birds": {"pages": birds},
+             {"title":"Birds", "img":"birb.jpg"},
+            #"Fish": {"pages": fish},
+             {"title": "Fish", "img": "Mr Splashy-pants.jpg"},
+            #"Reptiles": {"pages": reptiles},
+             {"title":"Reptiles", "img":"Polly.jpg"},
+            #"Equine": {"pages": equine},
+             {"title": "Equine", "img":"baldrick.jpg"},
+            #"Other": {"pages": other}
+             {"title": "Other", "img":"Ant and Dec.jpg"},  }
 
-    for cate, cate_data in cates.iteritems():
+    """for cate, cate_data in cates.iteritems():
         c = add_cate(cate)
         for p in cate_data["pages"]:
             add_page(c, p["title"], p["img"])
@@ -56,7 +63,7 @@ def add_page(cate, title, img, views=0):
     p = Page.objects.get_or_create(category=cate, title=title)[0]
     p.img=img
     p.save()
-    return p
+    return p"""
 
 def add_cate(name):
     c = Category.objects.get_or_create(name=name)[0]

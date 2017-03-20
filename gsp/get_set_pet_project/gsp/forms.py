@@ -1,8 +1,8 @@
 from django import forms
-from gsp.models import Page, Category
+from gsp.models import Category #, Page
 from django import forms
 from django.contrib.auth.models import User
-from gsp.models import Category, Page, UserProfile, Upload
+from gsp.models import Category, UserProfile, Upload #, Page
 
 
 class CategoryForm(forms.ModelForm):
@@ -18,7 +18,7 @@ class CategoryForm(forms.ModelForm):
         fields = ('name',)
 
 
-class PageForm(forms.ModelForm):
+"""class PageForm(forms.ModelForm):
     title = forms.CharField(max_length=128, help_text="Please enter the title of the page.")
     url = forms.URLField(max_length=200, help_text="Please enter the URL of the page.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
@@ -34,7 +34,7 @@ class PageForm(forms.ModelForm):
         # we can either exclude the category field from the form,
         exclude = ('category',)
         # or specify the fields to include (i.e. not include the category field)
-        # fields = ('title', 'url', 'views')
+        # fields = ('title', 'url', 'views')"""
 
 
 class UserForm(forms.ModelForm):

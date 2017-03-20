@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from gsp.models import Category
-from gsp.models import Page
+#from gsp.models import Page
 from gsp.models import Upload
 from gsp.forms import CategoryForm
-from gsp.forms import PageForm
+#from gsp.forms import PageForm
 from gsp.forms import UserForm, UserProfileForm
 from gsp.forms import UploadForm
 from django.contrib.auth import authenticate, login, logout
@@ -56,7 +56,7 @@ def add_category(request):
     return render(request, 'gsp/add_category.html', {'form': form})
 
 
-def add_page(request, category_name_slug):
+"""def add_page(request, category_name_slug):
     try:
         category = Category.objects.get(slug=category_name_slug)
     except Category.DoesNotExist:
@@ -73,7 +73,7 @@ def add_page(request, category_name_slug):
         else:
             print(form.errors)
     context_dict = {'form': form, 'category': category}
-    return render(request, 'gsp/add_page.html', context_dict)
+    return render(request, 'gsp/add_page.html', context_dict)"""
 
 
 def register(request):

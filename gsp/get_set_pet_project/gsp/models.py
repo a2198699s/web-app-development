@@ -24,7 +24,7 @@ class Category(models.Model):
         return self.name
 
 
-class Page(models.Model):
+"""class Page(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128)
     img = models.CharField(max_length=128, default="Super Hans.jpg")
@@ -33,7 +33,7 @@ class Page(models.Model):
         return self.title
 
     def __unicode__(self):
-        return self.title
+        return self.title"""
 
 
 class UserProfile(models.Model):
@@ -51,7 +51,7 @@ class UserProfile(models.Model):
 
 # Sets a file path so that it will go media/<username>/<filename>
 def user_directory_path(instance, filename):
-    return 'user_{0}/{1}'.format(instance.user.id, filename)
+    return 'user_{0}/{1}'.format(instance.user, filename)
 
 
 class Upload(models.Model):   
