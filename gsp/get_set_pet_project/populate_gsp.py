@@ -40,15 +40,15 @@ def populate():
             #"Small Mammals": {"pages": small_mammals},
              "Small Mammals":{"title": "Small Mammals", "img": "Herbert.jpg"},
             #"Birds": {"pages": birds},
-             "Birds":{"title":"Birds", "img":"birb.jpg"},
+             "Birds":{"title":"Birds", "img": "birb.jpg"},
             #"Fish": {"pages": fish},
              "Fish":{"title": "Fish", "img": "Mr Splashy-pants.jpg"},
             #"Reptiles": {"pages": reptiles},
-             "Reptiles":{"title":"Reptiles", "img":"Polly.jpg"},
+             "Reptiles":{"title":"Reptiles", "img": "Polly.jpg"},
             #"Equine": {"pages": equine},
-             "Equine":{"title": "Equine", "img":"baldrick.jpg"},
+             "Equine":{"title": "Equine", "img": "Horace.jpg"},
             #"Other": {"pages": other}
-             "Other":{"title": "Other", "img":"Ant and Dec.jpg"},  }
+             "Other":{"title": "Other", "img": "Ant and Dec.jpg"},  }
 
     for cate, cate_data in cates.iteritems():
         c = add_cate(cate_data["title"], cate_data["img"])

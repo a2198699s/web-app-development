@@ -7,19 +7,23 @@
 {% endblock %}
 
 {% block body_block %}
-	<div class="category-body">
 	<h1>Categories Page</h1> 
 		<div>Choose the category you would like to view!</div>
-		<div> 
 			{% if categories %} 
-				<ul>
-				{% for category in categories %}
-					<img src="{{ MEDIA_URL }}{{ category.img }}" alt = "Picture of "{{ category.name }}</li>
-					<a href="/gsp/category/{{ category.slug }}"style="color:blue;">{{ category.name }}</h1></a> 
-					</h1>
+			<div class = "cardunit">
+			{% for category in categories %}
+			<div class = "smallcard" id = "myBtn">
+				<div class = "smallpet">
+					<img src="{{ MEDIA_URL }}{{ category.img }}" 
+						alt = "Picture of "{{ category.name }}
+				</div>
+				<h1><a href="/gsp/category/{{ category.slug }}" 
+					style="color:blue;">{{ category.name }}</h1></a>
+				</div>
+				<div class = "smallfave"></div>
+				</div>
 				{% endfor %}
-			
-				</ul>	
+			</div>
 			{% else %} 
 				<strong>There are no categories present.</strong> 
 			{% endif %} 
@@ -27,5 +31,4 @@
 		</div>
 	</div>
 {% endblock %}
-
-		
+	
