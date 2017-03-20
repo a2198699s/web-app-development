@@ -8,7 +8,7 @@ from gsp.models import Category # Page
 def populate():
 
     
-   """" cats = [{"title": "Cats",
+    """" cats = [{"title": "Cats",
              "img":"maru.jpg"}]
     
     dogs = [{"title": "Dogs",
@@ -34,28 +34,28 @@ def populate():
 
     # Called it cates because categories takes too long to type and we have
     # a cats page already. Categories are referred to as cate or cates
-    cates = {{"title": "Cats", "img": "maru.jpg"},
+    cates = {"Cats":{"title": "Cats", "img": "maru.jpg"},
             #"Dogs": {"pages": dogs},
-             {"title": "Dogs", "img": "dog4.jpg"},
+             "Dogs":{"title": "Dogs", "img": "dog4.jpg"},
             #"Small Mammals": {"pages": small_mammals},
-             {"title": "Small Mammals", "img": "Herbert.jpg"},
+             "Small Mammals":{"title": "Small Mammals", "img": "Herbert.jpg"},
             #"Birds": {"pages": birds},
-             {"title":"Birds", "img":"birb.jpg"},
+             "Birds":{"title":"Birds", "img":"birb.jpg"},
             #"Fish": {"pages": fish},
-             {"title": "Fish", "img": "Mr Splashy-pants.jpg"},
+             "Fish":{"title": "Fish", "img": "Mr Splashy-pants.jpg"},
             #"Reptiles": {"pages": reptiles},
-             {"title":"Reptiles", "img":"Polly.jpg"},
+             "Reptiles":{"title":"Reptiles", "img":"Polly.jpg"},
             #"Equine": {"pages": equine},
-             {"title": "Equine", "img":"baldrick.jpg"},
+             "Equine":{"title": "Equine", "img":"baldrick.jpg"},
             #"Other": {"pages": other}
-             {"title": "Other", "img":"Ant and Dec.jpg"},  }
+             "Other":{"title": "Other", "img":"Ant and Dec.jpg"},  }
 
-    """for cate, cate_data in cates.iteritems():
-        c = add_cate(cate)
-        for p in cate_data["pages"]:
-            add_page(c, p["title"], p["img"])
+    for cate, cate_data in cates.iteritems():
+        c = add_cate(cate_data["title"], cate_data["img"])
+        #for p in cate_data["pages"]:
+            #add_page(c, p["title"], p["img"])
 
-    for c in Category.objects.all():
+    """for c in Category.objects.all():
         for p in Page.objects.filter(category=c):
             print("- {0} - {1}".format(str(c), str(p)))
 
@@ -65,8 +65,8 @@ def add_page(cate, title, img, views=0):
     p.save()
     return p"""
 
-def add_cate(name):
-    c = Category.objects.get_or_create(name=name)[0]
+def add_cate(name, image):
+    c = Category.objects.get_or_create(name=name, img=image)[0]
     c.save()
     return c
 
