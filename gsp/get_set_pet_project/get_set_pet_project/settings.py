@@ -130,6 +130,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Rating settings
+STAR_RATINGS_RERATE = False
+STAR_RATINGS_RANGE = 10
+#STAR_RATINGS_HEIGHT and STAR_RATINGS_WIDTH
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

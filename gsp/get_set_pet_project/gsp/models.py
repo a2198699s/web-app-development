@@ -4,6 +4,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
 from django.db import models
+from django.contrib.contenttypes.fields import GenericRelation
+from star_ratings.models import Rating
 
 
 class Category(models.Model):
@@ -52,11 +54,12 @@ class Upload(models.Model):
     name = models.CharField(max_length=128)
     # uploads the file to path as defined earlier
     picture = models.ImageField(upload_to=user_directory_path)
-    rating = models.IntegerField(default=0)
+    ratings = GenericRelation(Rating, related_query_name='uploads')
 
     def __unicode__(self):
         return self.name
-		
+Upload.objects.filter(ratings__isnull=False).order_by('ratings__average')
+
 class UserProfile(models.Model):
     # This line is required. Links UserProfile to a User model instance.
     user = models.OneToOneField(User)
