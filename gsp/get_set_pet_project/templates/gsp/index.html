@@ -2,10 +2,6 @@
 {% extends 'gsp/base.html' %}
 {% load staticfiles %}
 
-{% block title_block %}
-	Rate My Pet
-{% endblock %}
-
 {% block body_block %}
 <strong>{{ boldmessage }}</strong><br />
 
@@ -129,7 +125,7 @@
             <a href="favourites.html"> <img src="{% static "images/Favourite-icon.png" %}"
 										alt = "Favourites" /></a>
             <!-- <button id="myBtn">Open Modal</button> -->
-        </div> 
+        </div>
         </div>
 
     </div>
@@ -400,4 +396,3 @@
             // }
             </script>
 {% endblock %}
-
