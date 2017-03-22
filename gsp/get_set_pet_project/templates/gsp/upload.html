@@ -8,17 +8,6 @@
 {% block body_block %}
 	<!--Checks if a user is logged in, if not they will be asked before viewing this page-->
 	{% if user.is_authenticated %}
-<<<<<<< HEAD
-		<!--Here's the form for uploading a new picture-->
-	<div class="form-body">
-		<form id="upload_form" method="post" action="{% url 'upload' %}"
-			enctype="multipart/form-data">
-		{% csrf_token %}
-		{{ upload_form.as_p }}
-		
-		<input type="submit" name="submit" value="Upload" />
-	</div>
-=======
 	<!--Here's the form for uploading a new picture-->
 	<div class="form-body">
 		<form id="upload_rm" method="post" action="{% url 'upload' %}"
@@ -33,7 +22,6 @@
 		<br>Please Sign in or Sign up before uploading.
 		</p>
 	{% endif %}
->>>>>>> 58238e48d3f6843b8d459a0e9babf84d35f130ba
 	{% if uploads %}
 	<div class = "categorySection">
 	<h1> Previous Uploads </h1>
@@ -50,18 +38,9 @@
 				<h4>{{ upload.category }}</h4>
 				<div class = "smallfave"></div>
 		</div>
-			{% endfor %}
+					{% endfor %}
 		</div>
 	{% else %}
 		<p>No Uploads</p>
 	{% endif %}
-<<<<<<< HEAD
-		{% else %}
-		<p>You are not Signed in. 
-		<br>Please Sign in or Sign up before uploading.
-		</p>
-	{% endif %}
-
-=======
->>>>>>> 58238e48d3f6843b8d459a0e9babf84d35f130ba
 {% endblock %}
