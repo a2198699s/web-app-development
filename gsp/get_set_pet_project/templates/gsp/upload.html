@@ -33,15 +33,22 @@
 		<form id="upload_form" method="post" action="{% url 'upload' %}"
 			enctype="multipart/form-data">
 		{% csrf_token %}
+		<h1 style="color:black;">
 		{{ upload_form.as_p }}
+		</h1>
 		
 		<input type="submit" name="submit" value="Upload" />
 	</div>
 	{% else %}
+	<h1 style="color:black;">
 		<p>You are not Signed in. 
 		<br>Please Sign in or Sign up before uploading.
+		</h1>
 		</p>
 	{% endif %}
 {% endblock %}
 	
 		
+		
+		
+<h1 style="color:black;"></h1>
