@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gsp'
+    'gsp',
+    'star_ratings'
     #'registration' #add in registration package
     #(might need to run $pip install -U django-registration-redux==1.4 if this is throwing up an error)
 

@@ -1,22 +1,10 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 {% extends 'gsp/base.html' %}
-{% load staticfiles %} 
-
+{% load staticfiles %}
 {% block title_block %}
 	Upload
 {% endblock %}
 {% block body_block %}
-	<!--Checks if a user is logged in, if not they will be asked before viewing this page-->
-	{% if user.is_authenticated %}
-		<!--Here's the form for uploading a new picture-->
-	<div class="form-body">
-		<form id="upload_form" method="post" action="{% url 'upload' %}"
-			enctype="multipart/form-data">
-		{% csrf_token %}
-		{{ upload_form.as_p }}
-		
-		<input type="submit" name="submit" value="Upload" />
-	</div>
 	{% if uploads %}
 	<!--This is based off the html code in index, will (hopefully) display a list of all uploads
 		TODO: make it so just the users uploads are shown. Also make it actually work-->
@@ -37,12 +25,5 @@
 	{% else %}
 		<p>No Uploads</p>
 	{% endif %}
-		{% else %}
-		<p>You are not Signed in. 
-		<br>Please Sign in or Sign up before uploading.
-		</p>
-	{% endif %}
 
 {% endblock %}
-	
-		

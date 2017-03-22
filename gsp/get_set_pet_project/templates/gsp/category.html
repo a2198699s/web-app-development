@@ -11,28 +11,19 @@
 {% block body_block %}
 	{% if category %}
 		{{ category.title }}
-		<!--{% if pages %}
+		{% if uploads %}
 			<ul>
 			<h1 style="color:black;">
-			{% for page in pages %}
+			{% for upload in uploads %}
 			<h1 style="color:black;">
-				<li><a href="{{ page.url }}">{{ page.title }}</a>
-				</h1>
-				<img src="{{ MEDIA_URL }}{{ page.img }}" alt = "Picture of "{{ page.title }}</li>
+				<img src="{{ MEDIA_URL }}{{ upload.picture }}" alt = "Picture of "{{ upload.name }}</li>
 			{% endfor %}
 			</h1>
 			</ul>
 		{% else %}
-			<strong>No pages currently in category.</strong>
-		{% endif %}-->
+			<strong>No uploads currently in category.</strong>
+		{% endif %}
 	{% else %}
 		The specified category does not exist!
 	{% endif %}
 {% endblock %}
-
-
-
-
-
-
-<h1 style="color:black;">	</h1>

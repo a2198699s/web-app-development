@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^gsp/', include('gsp.urls')),
     # above maps any URLs starting with gsp/ to be handled by gsp app
-
+    url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
     url(r'^admin/', admin.site.urls),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
