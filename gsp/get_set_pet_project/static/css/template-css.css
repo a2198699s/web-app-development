@@ -400,3 +400,13 @@ input[type=range]:focus::-ms-fill-upper {
 .helptext{
     font-size: 10px;
 }
+
+.form-body submit{
+    background-image: url();
+}
+
+#tick{
+    width: 8%;
+    height: auto;
+    margin-left: 90%;
+}

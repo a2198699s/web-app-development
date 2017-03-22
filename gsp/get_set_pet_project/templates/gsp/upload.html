@@ -15,7 +15,7 @@
 		{% csrf_token %}
 		{{ upload_form.as_p }}
 
-		<input type="submit" name="submit" value="Upload" />
+		<input id = "tick" type="image" name="submit" value="Upload" src = "{% static 'images/tick-icon.png' %}"/>
 	</div>
 	{% else %}
 		<p>You are not Signed in.
@@ -36,9 +36,10 @@
 				<h1>{{ upload.name }}</h1>
 				<br>
 				<h4>{{ upload.category }}</h4>
-				<div class = "smallfave"></div></div>
-					{% endfor %}</div>
-
+				<div class = "smallfave"></div>
+		</div>
+					{% endfor %}
+		</div>
 	{% else %}
 		<p>No Uploads</p>
 	{% endif %}
