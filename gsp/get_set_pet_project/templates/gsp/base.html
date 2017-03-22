@@ -5,9 +5,6 @@
 	<head>
 	<link rel="icon" href="{% static 'images/favicon.ico' %}"
 		<title>
-		{% block title_block %}
-			Rate my pet
-		{% endblock %}
 		</title>
 		<link href="{% static 'css/template-css.css' %}" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
@@ -19,6 +16,7 @@
 			{% block body_block %}
 			{% endblock %}
 		</div>
+
 		<nav>
 			<h1>Get, Set, Pet</h1>
 			<div class = "icon">
@@ -32,7 +30,7 @@
 			</div>
 			<ul>
 				<div class = "upload">
-					<a href="{% url 'upload' %}"><button>Upload</button></a>	
+					<a href="{% url 'upload' %}"><button>Upload</button></a>
 			<br>
 			<a href="highest.html">Highest rated</a>
 			<br>
@@ -45,22 +43,9 @@
 			<li><li><a href="{% url 'login' %}">Sign In</a></li>
 			<li><a href="{% url 'register' %}">Sign Up</a></li>
 			{% endif %}
-		
-		
-	
-		
+
+
 		</ul>
 			</nav>
 	</body>
 </html>
-
-
-
-
-		
-
-
-
-
-
-

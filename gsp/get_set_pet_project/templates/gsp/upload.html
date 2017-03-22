@@ -1,6 +1,6 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 {% extends 'gsp/base.html' %}
-{% load staticfiles %} 
+{% load staticfiles %}
 
 {% block title_block %}
 	Upload
@@ -8,6 +8,7 @@
 {% block body_block %}
 	<!--Checks if a user is logged in, if not they will be asked before viewing this page-->
 	{% if user.is_authenticated %}
+<<<<<<< HEAD
 		<!--Here's the form for uploading a new picture-->
 	<div class="form-body">
 		<form id="upload_form" method="post" action="{% url 'upload' %}"
@@ -17,14 +18,31 @@
 		
 		<input type="submit" name="submit" value="Upload" />
 	</div>
+=======
+	<!--Here's the form for uploading a new picture-->
+	<div class="form-body">
+		<form id="upload_rm" method="post" action="{% url 'upload' %}"
+			enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ upload_form.as_p }}
+
+		<input id = "tick" type="image" name="submit" value="Upload" src = "{% static 'images/tick-icon.png' %}"/>
+	</div>
+	{% else %}
+		<p>You are not Signed in.
+		<br>Please Sign in or Sign up before uploading.
+		</p>
+	{% endif %}
+>>>>>>> 58238e48d3f6843b8d459a0e9babf84d35f130ba
 	{% if uploads %}
-	<!--This is based off the html code in index, will (hopefully) display a list of all uploads
-		TODO: make it so just the users uploads are shown. Also make it actually work-->
+	<div class = "categorySection">
+	<h1> Previous Uploads </h1>
+</div>
 			<div class = "cardunit">
 			{% for upload in uploads %}
 			<div class = "smallcard" id = "myBtn">
 				<div class = "smallpet">
-					<img src="{{ MEDIA_URL }}{{ upload.picture }}" 
+					<img src="{{ MEDIA_URL }}{{ upload.picture }}"
 					alt="Picture of {{ upload.name }}">
 				</div>
 				<h1>{{ upload.name }}</h1>
@@ -37,12 +55,13 @@
 	{% else %}
 		<p>No Uploads</p>
 	{% endif %}
+<<<<<<< HEAD
 		{% else %}
 		<p>You are not Signed in. 
 		<br>Please Sign in or Sign up before uploading.
 		</p>
 	{% endif %}
 
+=======
+>>>>>>> 58238e48d3f6843b8d459a0e9babf84d35f130ba
 {% endblock %}
-	
-		

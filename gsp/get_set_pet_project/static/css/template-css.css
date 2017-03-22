@@ -32,8 +32,8 @@ form{
 }
 
 .page-content {
-    text-decoration: black;
-    margin-left: 50px;
+    position: relative;
+    top: 0;
 }
 
 nav {
@@ -380,4 +380,33 @@ input[type=range]:focus::-ms-fill-lower {
 }
 input[type=range]:focus::-ms-fill-upper {
   background: #5C6D70;
+}
+
+.form-body{
+    width: 40%;
+    height: 40%;
+    top:50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #5C6D70;
+}
+
+.form-body p{
+    text-align: center;
+}
+
+.helptext{
+    font-size: 10px;
+}
+
+.form-body submit{
+    background-image: url();
+}
+
+#tick{
+    width: 8%;
+    height: auto;
+    margin-left: 90%;
 }
