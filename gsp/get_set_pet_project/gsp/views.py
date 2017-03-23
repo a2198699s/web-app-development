@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from gsp.models import Category
-#from gsp.models import Page
 from gsp.models import Upload
 from gsp.forms import CategoryForm
 #from gsp.forms import PageForm
@@ -60,25 +59,6 @@ def add_category(request):
             print(form.errors)
     return render(request, 'gsp/add_category.html', {'form': form})
 
-
-"""def add_page(request, category_name_slug):
-    try:
-        category = Category.objects.get(slug=category_name_slug)
-    except Category.DoesNotExist:
-        category = None
-    form = PageForm()
-    if request.method == 'POST':
-        form = PageForm(request.POST)
-        if form.is_valid():
-            if category:
-                page = form.save(commit=False)
-                page.category = category
-                page.save()
-                return show_category(request, category_name_slug)
-        else:
-            print(form.errors)
-    context_dict = {'form': form, 'category': category}
-    return render(request, 'gsp/add_page.html', context_dict)"""
 
 
 def register(request):
@@ -172,3 +152,7 @@ def uploads(request):
     
     return render(request, 'gsp/user_submitted.html',
                   {'uploads':uploads})
+
+def top_rated(request):
+    uploads = Upload.objects.filter(ratings__isnull=False).order_by('ratings__average')
+    return render(request, 'gsp/top_rated.html', {'uploads': uploads})
