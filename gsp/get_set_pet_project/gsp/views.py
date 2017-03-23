@@ -140,7 +140,6 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
-# a lot of guesswork here I'll be honest
 def user_upload(request):
     if request.method == 'POST':
 
@@ -167,3 +166,9 @@ def user_upload(request):
 
     return render(request, 'gsp/upload.html',
                   {'uploads': uploads, 'upload_form': upload_form})
+
+def uploads(request):
+    uploads = Upload.objects.all()
+    
+    return render(request, 'gsp/user_submitted.html',
+                  {'uploads':uploads})
