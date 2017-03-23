@@ -1,0 +1,33 @@
+{% extends 'gsp/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	About
+{% endblock %}
+{% block body_block %}
+	<div class = "cardunit">
+	<h1>The team behind GetSetPet</h1>
+	<p>We like pets.</p>
+
+	<div class = "smallcard">
+	<img src="{% static 'images/team/Craig.jpg' %}" alt="Picture of pet">
+	</div>
+	<div class = "smallcard">
+	<img src="{% static 'images/team/Andrew.jpg' %}" alt="Picture of pet">
+	</div>
+	<div class = "smallcard">
+	<img src="{% static 'images/team/Neilio.jpg' %}" alt="Picture of pet">
+	</div>
+	<div class = "smallcard">
+	<img src="{% static 'images/team/andrew and Neil.jpg' %}" alt="Picture of pet">
+	</div>
+	<div class = "smallcard">
+	<img src="{% static 'images/team/the many chins of neil.jpg' %}" alt="Picture of pet">
+	</div>
+	<div class = "smallcard">
+	<img src="{% static 'images/team/lucy.jpg' %}">
+	</div>
+	<div class = "smallcard">
+	<img src="{% static 'images/team/Kevin our lord and saviour.jpg' %}" alt="Picture of pet">	
+	</div>
+{% endblock %}
