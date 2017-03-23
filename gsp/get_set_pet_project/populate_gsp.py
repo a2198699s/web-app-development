@@ -7,39 +7,16 @@ from gsp.models import Category # Page
 
 def populate():
 
-    
-    """" cats = [{"title": "Cats",
-             "img":"maru.jpg"}]
-    
-    dogs = [{"title": "Dogs",
-             "img":"dog4.jpg"}]
-    
-    small_mammals = [{"title": "Smol mammals",
-                      "img":"Herbert.jpg"}]
-    
-    birds = [{"title": "Birds",
-             "img":"birb.jpg"}]
-
-    fish = [{"title": "Fish",
-             "img":"Mr Splashy-pants.jpg"}]
-
-    reptiles = [{"title": "Reptiles",
-                 "img":"Polly.jpg"}]
-
-    equine = [{"title": "Equine",
-               "img":"baldrick.jpg"}]
-
-    other = [{"title": "Other",
-             "img":"Ant and Dec.jpg"}]"""
+    placeholders = {"Maru":{"name": "maru", "picture": "maru.jpg", "cate":"Cats"},
+                    "Maru": {"name": "maru", "picture": "maru.jpg", "cate": "Cats"},
+                    "Maru": {"name": "maru", "picture": "maru.jpg", "cate": "Cats"},
+                    "Maru": {"name": "maru", "picture": "maru.jpg", "cate": "Cats"},}
 
     # Called it cates because categories takes too long to type and we have
     # a cats page already. Categories are referred to as cate or cates
     cates = {"Cats":{"title": "Cats", "img": "maru.jpg"},
-            #"Dogs": {"pages": dogs},
              "Dogs":{"title": "Dogs", "img": "dog4.jpg"},
-            #"Small Mammals": {"pages": small_mammals},
              "Small Mammals":{"title": "Small Mammals", "img": "Herbert.jpg"},
-            #"Birds": {"pages": birds},
              "Birds":{"title":"Birds", "img": "birb.jpg"},
             #"Fish": {"pages": fish},
              "Fish":{"title": "Fish", "img": "Mr Splashy-pants.jpg"},
@@ -55,21 +32,23 @@ def populate():
         #for p in cate_data["pages"]:
             #add_page(c, p["title"], p["img"])
 
-    """for c in Category.objects.all():
-        for p in Page.objects.filter(category=c):
-            print("- {0} - {1}".format(str(c), str(p)))
+    for upload, p_data in placeholders.iteritems():
+        p = add_placeholder(p_data["name"], p_data["picture"], 0, admin, p_data["cate"])
 
-def add_page(cate, title, img, views=0):
-    p = Page.objects.get_or_create(category=cate, title=title)[0]
-    p.img=img
-    p.save()
-    return p"""
 
 def add_cate(name, image):
     c = Category.objects.get_or_create(name=name, img=image)[0]
     c.save()
     return c
 
+def add_placeholder(name, picture, rating, user, category):
+    p = Upload.objects.get_or_create(name=name,
+                                     category=category,
+                                     user=user,
+                                     picture=picture,
+                                     rating=rating)
+    p.save()
+    return p
 # Starts execution here
 if __name__ == '__main__':
     print("Starting Rango population script...")
