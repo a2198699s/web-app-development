@@ -129,6 +129,7 @@ def user_upload(request):
             
             upload = upload_form.save(commit=False)
             upload.user = request.user
+            upload.ratings_id = 0
             #upload.name = name
             #upload.category = category
 
