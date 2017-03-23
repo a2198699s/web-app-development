@@ -8,6 +8,9 @@
 	<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 {% endblock %}
 {% block body_block %}
+<div class = "categorySection">
+<h1> Recent Uploads </h1>
+</div>
 	{% if uploads %}
 	<!--This is based off the html code in index, will (hopefully) display a list of all uploads
 		TODO: make it so just the users uploads are shown. Also make it actually work-->
@@ -15,16 +18,14 @@
 			{% for upload in uploads %}
 			<div class = "smallcard" id = "myBtn">
 				<div class = "smallpet">
-					<img src="{{ MEDIA_URL }}{{ upload.picture }}" 
+					<img src="{{ MEDIA_URL }}{{ upload.picture }}"
 					alt="Picture of {{ upload.name }}">
 				</div>
 				<h1>{{ upload.name }}</h1>
 				<br>
 				<h4>{{ upload.category }}</h4>
-				<div class = "smallfave"></div>
 				{% ratings upload %}
 				</div>
-			</div>
 			{% endfor %}
 		</div>
 	{% else %}
