@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^upload/$', views.user_upload, name='upload'),
     url(r'^all_uploads/', views.uploads, name='user_submitted'),
     url(r'^all_uploads/', views.top_rated, name='top_rated'),
+    url(r'^profile/$', views.profile, name='profile'),
     # url(r'^accounts/', include('registration.backends.simple.urls')),
 ]
 

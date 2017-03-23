@@ -15,10 +15,10 @@ def index(request):
     newest_uploads = Upload.objects.order_by('-date_added')[:10]
     top_uploads = Upload.objects.filter(ratings__isnull=False).order_by('ratings__average')[:10]
     return render(request, 'gsp/index.html', {'newest_uploads': newest_uploads, 'top_uploads': top_uploads})
-	
+
 def favourites(request):
     #request.session.set_test_cookie()
-    return render(request, 'gsp/favourites.html')	
+    return render(request, 'gsp/favourites.html')
 
 
 def about(request):
@@ -28,7 +28,12 @@ def about(request):
     return render(request, 'gsp/about.html')
 
 
-	
+def profile(request):
+    #if request.session.test_cookie_worked():
+        #print("TEST COOKIE WORKED!")
+        #request.session.delete_test_cookie()
+    return render(request, 'gsp/profile.html')
+
 def cats(request):
     #category_list = Category.objects.order_by('-likes')
     category_list = Category.objects.all()
@@ -127,7 +132,7 @@ def user_upload(request):
         upload_form = UploadForm(request.POST, request.FILES)
 
         if upload_form.is_valid():
-            
+
             upload = upload_form.save(commit=False)
             upload.user = request.user
             upload.ratings_id = 0
@@ -151,7 +156,7 @@ def user_upload(request):
 
 def uploads(request):
     uploads = Upload.objects.all()
-    
+
     return render(request, 'gsp/user_submitted.html',
                   {'uploads':uploads})
 
