@@ -12,8 +12,9 @@ from django.core.urlresolvers import reverse
 
 
 def index(request):
-    #request.session.set_test_cookie()
-    return render(request, 'gsp/index.html')
+    newest_uploads = Upload.objects.order_by('-date_added')[:10]
+    top_uploads = Upload.objects.filter(ratings__isnull=False).order_by('ratings__average')[:10]
+    return render(request, 'gsp/index.html', {'newest_uploads': newest_uploads, 'top_uploads': top_uploads})
 	
 def favourites(request):
     #request.session.set_test_cookie()
@@ -39,12 +40,12 @@ def show_category(request, category_name_slug):
     context_dict = {}
     try:
         category = Category.objects.get(slug=category_name_slug)
-        #pages = Page.objects.filter(category=category)
-        #context_dict['pages'] = pages
+        uploads = Upload.objects.filter(category=category)
+        context_dict['uploads'] = uploads
         context_dict['category'] = category
     except Category.DoesNotExist:
         context_dict['category'] = None
-        #context_dict['pages'] = None
+        context_dict['uploads'] = None
     return render(request, 'gsp/category.html', context_dict)
 
 
