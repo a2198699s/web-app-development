@@ -213,7 +213,6 @@ a{
 }
 
 .cardunit{
-    display: inline-block;
     position: relative;
     margin-left: 5%;
 }
@@ -253,7 +252,7 @@ a{
 [class^="smallcard"]{
     position: relative;
     display: inline-block;
-    width: 19%;
+    width: 19.77%;
     background-color: white;
     height:10%;
     /*margin-bottom: 5px;*/
