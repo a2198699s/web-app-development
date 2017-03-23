@@ -17,12 +17,8 @@ urlpatterns = [
     url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^upload/$', views.user_upload, name='upload'),
     url(r'^all_uploads/', views.uploads, name='user_submitted'),
-<<<<<<< HEAD
-    url(r'^top_rated/', views.top_rated, name='top_rated'),
-=======
     url(r'^all_uploads/', views.top_rated, name='top_rated'),
     url(r'^profile/$', views.profile, name='profile'),
->>>>>>> fc189339df032e5594dda3117ef2a8963e9a4755
     # url(r'^accounts/', include('registration.backends.simple.urls')),
 ]
 
