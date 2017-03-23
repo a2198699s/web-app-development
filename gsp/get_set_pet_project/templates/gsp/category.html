@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends 'gsp/base.html' %}
 {% load staticfiles %}
+{% load ratings %}
 
 {% block title_block %}
 <h1 style="color:black;">
@@ -11,18 +12,37 @@
 {% block body_block %}
 	{% if category %}
 		{% if uploads %}
-			<ul>
-			<h1 style="color:black;">
+			<div class = "cardunit">
 			{% for upload in uploads %}
-			<h1 style="color:black;">
-				<img src="{{ MEDIA_URL }}{{ upload.picture }}" alt = "Picture of "{{ upload.name }}</li>
+			<div class = "smallcard" id = "myBtn">
+				<div class = "smallpet">
+					<img src="{{ MEDIA_URL }}{{ upload.picture }}"
+					alt="Picture of {{ upload.name }}">
+				</div>
+				<h1>{{ upload.name }}</h1>
+				{% ratings upload %}
+				</div>
 			{% endfor %}
-			</h1>
-			</ul>
-		{% else %}
-			<strong>No uploads currently in category.</strong>
-		{% endif %}
+		</div>
 	{% else %}
-		The specified category does not exist!
+		<p>No Uploads</p>
 	{% endif %}
+<style>
+    #{{ id }} .star-ratings-rating-full, #{{ id }} .star-ratings-rating-empty {
+        width: {{ icon_width }}px;
+        height: {{ icon_height }}px;
+        background-size: {{ sprite_width }}px;
+    }
+
+    #{{ id }} .star-ratings-rating-empty {
+        background-position: -{{ icon_width }}px 0;
+    }
+
+    {% if user.is_authenticated and editable %}
+    #{{ id }} .star-ratings-rating-full:hover, #{{ id }} .star-ratings-rating-empty:hover {
+        background-position: -{{ icon_width|add:icon_width }}px 0;
+    }
+    {% endif %}
+</style>
+{% endif %}
 {% endblock %}

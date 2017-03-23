@@ -40,6 +40,7 @@ class Upload(models.Model):
     # uploads the file to path as defined earlier
     picture = models.ImageField(upload_to=user_directory_path)
     ratings = models.ForeignKey(Rating)
+    date_added = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
         return self.name
