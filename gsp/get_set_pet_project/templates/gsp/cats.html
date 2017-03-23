@@ -1,34 +1,39 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 {% extends 'gsp/base.html' %}
-{% load staticfiles %} 
+{% load staticfiles %}
 
 {% block title_block %}
 	Get Set Pet
 {% endblock %}
 
 {% block body_block %}
-	<h1>Categories Page</h1> 
-		<div>Choose the category you would like to view!</div>
-			{% if categories %} 
+	<div class = "categorySection">
+			<h1> Top Rated </h1>
+		<br>
+			<h3>Look at all the pets! Choose One!</h3>
+		</div>
+			{% if categories %}
 			<div class = "cardunit">
 			{% for category in categories %}
-			<div class = "smallcard" id = "myBtn">
+
+			</div><div class = "smallcard" id = "myBtn">
+						<div class="overlay">
+							<h1><a href="/gsp/category/{{ category.slug }}"style="color:white;">{{ category.name }}</h1></a>
+				</div>
 				<div class = "smallpet">
-					<img src="{{ MEDIA_URL }}{{ category.img }}" 
-						alt = "Picture of "{{ category.name }}
+					<a href="/gsp/category/{{ category.slug }}">
+					<img src="{{ MEDIA_URL }}{{ category.img }}"
+						alt = "Picture of "{{ category.name }} href = "/gsp/category/{{ category.slug }}">
+					</a>
 				</div>
-				<h1><a href="/gsp/category/{{ category.slug }}" 
-					style="color:blue;">{{ category.name }}</h1></a>
 				</div>
-				<div class = "smallfave"></div>
-				</div>
+
 				{% endfor %}
 			</div>
-			{% else %} 
-				<strong>There are no categories present.</strong> 
-			{% endif %} 
-			
+			{% else %}
+				<strong>There are no categories present.</strong>
+			{% endif %}
+
 		</div>
 	</div>
 {% endblock %}
-	

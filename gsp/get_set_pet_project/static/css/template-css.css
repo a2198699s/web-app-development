@@ -86,7 +86,6 @@ nav:hover ~ article:after {
 
 a{
     text-decoration: none;
-    display:inline-block;
     color: white;
 }
 .icon{
@@ -233,18 +232,28 @@ a{
 }
 
 .categorySection h1{
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
 }
 
 .categorySection a{
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     display: inline-block;
     color: gray;
 }
 
-.smallcard{
+.categorySection h3{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
     display: inline-block;
-    width: 20%;
+    color: gray;
+}
+
+[class^="smallcard"]{
+    position: relative;
+    display: inline-block;
+    width: 19%;
     background-color: white;
     height:10%;
     /*margin-bottom: 5px;*/
@@ -253,7 +262,9 @@ a{
     border-color: gray;
     border-width: thin;
     box-sizing: border-box;
+    margin-top: 0px;
 }
+
 
 .smallcard h1,h4{
     display: inline-block;
@@ -273,7 +284,29 @@ a{
     padding-right: 2%;
 }
 
+.overlay{
+    position: absolute;
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    background: fade-out(#000000, 0.2)
+}
+
+.overlay:before {
+   content: '';
+   display: inline-block;
+   height: 100%;
+   vertical-align: middle;
+   background: fade-out(#000000, 0.2)
+}
+.text-box h1 {
+   display: inline-block;
+   font-size: 20px; /*or whatever you want*/
+   color: white;
+}
+
 .smallpet img{
+    display: block;
     width: 100%;
     height:150px;
     object-fit: cover;
@@ -281,6 +314,9 @@ a{
     border-color: gray;
 }
 
+.smallpet href{
+    z-index: 500;
+}
 input[type=text] {
     border: 3px solid #A37774;
     padding: 10px;
