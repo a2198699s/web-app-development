@@ -36,11 +36,14 @@ form{
 }
 .logo{
 z-index: 9999;
+margin-left: 10%;
+margin-right: 10%;
 }
 
 .logo img{
-    width:50px;
+    width:80%;
     height: auto;
+
 }
 .page-content {
     position: relative;
@@ -74,7 +77,8 @@ nav:after {
 }
 
 nav ul {
-    padding-top: 200px;
+    padding-top: 10%;
+    padding-left: 0;
     width: auto;
     list-style-type: none;
     font-size: 20px;
@@ -104,6 +108,7 @@ a{
     float: right;
 }
 .icon img{
+    padding-top: 2em;
     padding-right: 1em;
     float: right;
     height: 40px;
@@ -388,4 +393,12 @@ input[type=email]{
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-size: 10px;
+}
+
+.upload a{
+    text-align: center;
+}
+
+.upload{
+    width: 100%;
 }
