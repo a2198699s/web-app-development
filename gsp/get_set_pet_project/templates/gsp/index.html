@@ -11,15 +11,14 @@
 		</div>
         <div class = "cardunit">
 			{% for upload in top_uploads %}
-			<div class = "smallcard" id = "myBtn">
-				<div class = "smallpet">
-					<img src="{{ MEDIA_URL }}{{ upload.picture }}"
-					alt="Picture of {{ upload.name }}">
-				</div>
-				<h1>{{ upload.name }}</h1>
-				<br>
-				<h4>{{ upload.category }}</h4>
-				</div>
+            <div class = "smallcard" id = "myBtn">
+                <div class = "smallpet">
+                    <img src="{{ MEDIA_URL }}{{ upload.picture }}"
+                    alt="Picture of {{ upload.name }}">
+                </div>
+                <h1>{{ upload.name }}</h1>
+                {% ratings upload %}
+                </div>
 			{% endfor %}
 		</div>
     <div class = "categorySection">
@@ -37,6 +36,10 @@
 				<h1>{{ upload.name }}</h1>
 				<br>
 				<h4>{{ upload.category }}</h4>
+                <br>
+				<div class = "rating">
+				{% ratings upload %}
+			</div>
 				</div>
 			{% endfor %}
 		</div>
@@ -80,7 +83,7 @@
 
 </div>
 
-        <div id = "myModal" class = "card">
+        <!-- <div id = "myModal" class = "card">
             <div class = "petimg">
 				<img src="{{ MEDIA_URL }}dog.jpg" alt="Picture of pet">
             </div>
@@ -159,5 +162,5 @@
             //         modal.style.display = "none";
             //     }
             // }
-            </script>
+            </script> -->
 {% endblock %}

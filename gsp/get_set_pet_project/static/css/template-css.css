@@ -445,3 +445,9 @@ input[type=range]:focus::-ms-fill-upper {
     height: auto;
     margin-left: 90%;
 }
+
+.rating{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+}
