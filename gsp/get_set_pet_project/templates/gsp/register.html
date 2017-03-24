@@ -10,7 +10,7 @@
 		Get Set Pet says: <strong>thank you for registering!</strong>
 		<a href="{% url 'login' %}">Sign in here</a><br />
 	{% else %}
-		Get Set Pet says: <strong>register here!</strong><br />
+<strong>Register Here!</strong><br />
 		<h1 style="color:black;">
 		<form id="user_form" method="post" action="{% url 'register' %}"
 			enctype="multipart/form-data">
@@ -20,7 +20,8 @@
 		{{ user_form.as_p }}
 		{{ profile_form.as_p }}
 
-		<input type="submit" name="submit" value="Register" />
+		<input id = "tick" type="image" name="submit" value="Register" src = "{% static 'images/tick-icon.png' %}"/>
+
 		</form>
 	{% endif %}
 

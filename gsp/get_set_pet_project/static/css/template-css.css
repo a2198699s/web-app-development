@@ -333,7 +333,7 @@ input[type=text] {
     top: 0;
 }
 
-input[type=password] {
+input[type=password]{
     border: 3px solid #A37774;
     padding: 10px;
     z-index: 999;
@@ -341,17 +341,28 @@ input[type=password] {
     top: 0;
 }
 
+input[type=email]{
+    border: 3px solid #A37774;
+    padding: 10px;
+    z-index: 999;
+    position: relative;
+    top: 0;
+}
+
+.helptext{
+    display: block;
+}
 
 .form-body{
     width: 40%;
     height: 40%;
-    top:50%;
-    bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
     background-color: #5C6D70;
     font-family: 'Open Sans', sans-serif;
+    position: fixed;
+    top: 25%;
 }
 
 .form-body p{
@@ -367,6 +378,7 @@ input[type=password] {
 }
 
 #tick{
+    padding-top: 20%;
     width: 8%;
     height: auto;
     margin-left: 90%;
