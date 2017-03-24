@@ -149,13 +149,13 @@ def user_upload(request):
     else:
         upload_form = UploadForm()
         #all_categories = Category.objects.order_by('-id')
-    uploads = Upload.objects.all()
+        uploads = Upload.objects.order_by('-date_added')[:10]
 
     return render(request, 'gsp/upload.html',
                   {'uploads': uploads, 'upload_form': upload_form})
 
 def uploads(request):
-    uploads = Upload.objects.order_by('-date_added')[:10]
+    uploads = Upload.objects.order_by('-date_added')
 
     return render(request, 'gsp/user_submitted.html',
                   {'uploads':uploads})
