@@ -8,7 +8,7 @@
 	<h1>Login to GetSetPet</h1>
 		<form id="login_form" method="post" action="{% url 'login' %}">
 			{% csrf_token %}
-			<h1 style="color:black;"> 
+			<h1 style="color:black;">
 				Username: <input type="text" name="username" value="" size="50" />
 			</h1>
 			<br />
@@ -16,9 +16,7 @@
 				Password: <input type="password" name="password" value="" size="50" />
 				</h1>
 			<br />
-			<input type="submit" value="submit" />
+			<input id = "tick" type="image" name="submit" value="submit" src = "{% static 'images/tick-icon.png' %}"/>
 		</form>
 	</div>
 {% endblock %}
-
-
