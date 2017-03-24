@@ -155,11 +155,12 @@ def user_upload(request):
                   {'uploads': uploads, 'upload_form': upload_form})
 
 def uploads(request):
-    uploads = Upload.objects.all()
+    uploads = Upload.objects.order_by('-date_added')
 
     return render(request, 'gsp/user_submitted.html',
                   {'uploads':uploads})
 
 def top_rated(request):
-    uploads = Upload.objects.filter(ratings__isnull=False).order_by('ratings__average')
-    return render(request, 'gsp/top_rated.html', {'uploads': uploads})
+
+	top_uploads = Upload.objects.filter(ratings__isnull=False).order_by('-rating__ratings_average')
+	return render(request, 'gsp/top_rated.html', {'top_uploads': top_uploads})

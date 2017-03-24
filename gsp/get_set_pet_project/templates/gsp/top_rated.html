@@ -9,10 +9,8 @@
 {% endblock %}
 {% block body_block %}
 	{% if uploads %}
-	<!--This is based off the html code in index, will (hopefully) display a list of all uploads
-		TODO: make it so just the users uploads are shown. Also make it actually work-->
 			<div class = "cardunit">
-			{% for upload in uploads %}
+			{% for upload in top_uploads %}
 			<div class = "smallcard" id = "myBtn">
 				<div class = "smallpet">
 					<img src="{{ MEDIA_URL }}{{ upload.picture }}" 
