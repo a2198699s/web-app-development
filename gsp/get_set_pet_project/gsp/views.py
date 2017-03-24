@@ -12,29 +12,23 @@ from django.core.urlresolvers import reverse
 
 
 def index(request):
+    #creates a dictionary of all objects ordered by the date added
     newest_uploads = Upload.objects.order_by('-date_added')
     return render(request, 'gsp/index.html', {'newest_uploads': newest_uploads})
 
-def favourites(request):
+"""def favourites(request):
     #request.session.set_test_cookie()
-    return render(request, 'gsp/favourites.html')
+    return render(request, 'gsp/favourites.html')"""
 
 
 def about(request):
-    #if request.session.test_cookie_worked():
-        #print("TEST COOKIE WORKED!")
-        #request.session.delete_test_cookie()
     return render(request, 'gsp/about.html')
 
 
 def profile(request):
-    #if request.session.test_cookie_worked():
-        #print("TEST COOKIE WORKED!")
-        #request.session.delete_test_cookie()
     return render(request, 'gsp/profile.html')
 
 def cats(request):
-    #category_list = Category.objects.order_by('-likes')
     category_list = Category.objects.all()
     context_dict = {'categories': category_list}
     return render(request, 'gsp/cats.html', context=context_dict)
@@ -44,6 +38,7 @@ def show_category(request, category_name_slug):
     context_dict = {}
     try:
         category = Category.objects.get(slug=category_name_slug)
+        #selects only the uploads of a particular category
         uploads = Upload.objects.filter(category=category)
         context_dict['uploads'] = uploads
         context_dict['category'] = category
@@ -153,13 +148,3 @@ def user_upload(request):
     return render(request, 'gsp/upload.html',
                   {'uploads': uploads, 'upload_form': upload_form})
 
-"""def uploads(request):
-    uploads = Upload.objects.order_by('-date_added')
-
-    return render(request, 'gsp/user_submitted.html',
-                  {'uploads':uploads})
-
-def top_rated(request):
-
-	top_uploads = Upload.objects.filter(ratings__isnull=False).order_by('-rating__ratings_average')
-	return render(request, 'gsp/top_rated.html', {'top_uploads': top_uploads})"""

@@ -5,8 +5,9 @@
 	Upload
 {% endblock %}
 {% block body_block %}
-	<h1>Upload Complete!</h1>
-	<p>Redirecting to uploads...</p>
-	
+	<div class="form-body">
+		<h1>Upload Complete!</h1>
+		<p>Redirecting to uploads...</p>
+	</div>	
 	<meta http-equiv="refresh" content="3;{% url 'index' %}"/>
 {% endblock %}
