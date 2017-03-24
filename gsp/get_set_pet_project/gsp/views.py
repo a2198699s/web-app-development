@@ -143,7 +143,7 @@ def user_upload(request):
                 upload.picture = request.FILES['picture']
             upload.save()
 
-            return render(request, 'gsp/upload.html', {'upload_form': upload_form})
+            return render(request, 'gsp/upload_complete.html', {'upload_form': upload_form})
         else:
             print(upload_form.errors)
     else:
@@ -155,7 +155,7 @@ def user_upload(request):
                   {'uploads': uploads, 'upload_form': upload_form})
 
 def uploads(request):
-    uploads = Upload.objects.order_by('-date_added')
+    uploads = Upload.objects.order_by('-date_added')[:10]
 
     return render(request, 'gsp/user_submitted.html',
                   {'uploads':uploads})
