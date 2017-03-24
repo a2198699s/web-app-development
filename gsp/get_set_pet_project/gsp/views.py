@@ -12,9 +12,8 @@ from django.core.urlresolvers import reverse
 
 
 def index(request):
-    newest_uploads = Upload.objects.order_by('-date_added')[:10]
-    top_uploads = Upload.objects.filter(ratings__isnull=False).order_by('ratings__average')[:10]
-    return render(request, 'gsp/index.html', {'newest_uploads': newest_uploads, 'top_uploads': top_uploads})
+    newest_uploads = Upload.objects.order_by('-date_added')
+    return render(request, 'gsp/index.html', {'newest_uploads': newest_uploads})
 
 def favourites(request):
     #request.session.set_test_cookie()
@@ -154,7 +153,7 @@ def user_upload(request):
     return render(request, 'gsp/upload.html',
                   {'uploads': uploads, 'upload_form': upload_form})
 
-def uploads(request):
+"""def uploads(request):
     uploads = Upload.objects.order_by('-date_added')
 
     return render(request, 'gsp/user_submitted.html',
@@ -163,4 +162,4 @@ def uploads(request):
 def top_rated(request):
 
 	top_uploads = Upload.objects.filter(ratings__isnull=False).order_by('-rating__ratings_average')
-	return render(request, 'gsp/top_rated.html', {'top_uploads': top_uploads})
+	return render(request, 'gsp/top_rated.html', {'top_uploads': top_uploads})"""

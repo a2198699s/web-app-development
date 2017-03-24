@@ -4,7 +4,6 @@ from gsp import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^about/', views.about, name='about'),
-	url(r'^favourites/', views.favourites, name='favourites'),
     url(r'^cats/', views.cats, name='cats'),
     url(r'about/$', views.about, name='about'),
     url(r'^add_category/$', views.add_category, name='add_category'),
@@ -16,8 +15,8 @@ urlpatterns = [
     url(r'^login/$', views.user_login, name='login'),
     url(r'^logout/$', views.user_logout, name='logout'),
     url(r'^upload/$', views.user_upload, name='upload'),
-    url(r'^all_uploads/', views.uploads, name='user_submitted'),
-    url(r'^highest/', views.top_rated, name='top_rated'),
+    #url(r'^all_uploads/', views.uploads, name='user_submitted'),
+    #url(r'^highest/', views.top_rated, name='top_rated'),
     url(r'^profile/$', views.profile, name='profile'),
     # url(r'^accounts/', include('registration.backends.simple.urls')),
 ]
